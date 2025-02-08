@@ -103,6 +103,7 @@ const createRpc = (client, req) => {
 
   return client.request({
     ...filterHeaders(req.headers),
+    'te': 'trailers',
     ':method': 'POST',
     ':path': parseUrl(req).pathname,
     'content-type': 'application/grpc' + format,
